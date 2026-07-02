@@ -231,27 +231,35 @@ Faites preuve de pédagogie et soyez clair dans vos explications et procedures d
 **Exercice 1 :**  
 Quels sont les composants dont la perte entraîne une perte de données ?  
   
-*..Répondez à cet exercice ici..*
+*PVC pra-data*: Persistent Volume (PV) et base de données SQLite
 
 **Exercice 2 :**  
 Expliquez nous pourquoi nous n'avons pas perdu les données lors de la supression du PVC pra-data  
   
-*..Répondez à cet exercice ici..*
+*un système de sauvegarde automatique basé sur un CronJob Kubernetes,il copiait régulièrement la base SQLite vers le PVC pra-backup*
 
 **Exercice 3 :**  
 Quels sont les RTO et RPO de cette solution ?  
   
-*..Répondez à cet exercice ici..*
+*RTO:Temps maximum acceptable pour remettre le service en route après une panne
+RPO:Quantité maximale de perte de données acceptable*
 
 **Exercice 4 :**  
 Pourquoi cette solution (cet atelier) ne peux pas être utilisé dans un vrai environnement de production ? Que manque-t-il ?   
   
-*..Répondez à cet exercice ici..*
+*Base de données SQLite non adaptée
+Sauvegarde trop simple (CronJob)
+Sécurité insuffisante
+PRA trop simplifié
+*
   
 **Exercice 5 :**  
 Proposez une archtecture plus robuste.   
   
-*..Répondez à cet exercice ici..*
+*remplacer la base de données par Postgrsql
+Ajouter une file de messages comme Kafka
+Stockage robuste (CSI) comme AWS/  Azure disk
+renforcé la sécurité *
 
 ---------------------------------------------------
 Séquence 6 : Ateliers  
